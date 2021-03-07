@@ -257,10 +257,87 @@
                     "height": "543px"
                 }
             }
+        },
+        {
+            "name": "/Example",
+            "id": "f3b8dd2f-c03f-9f74-131a-d29929c54835",
+            "graph": {
+                "connections": [
+                    {
+                        "fromId": "6c1a5aa4-48b6-6d31-3880-d6803a52eb26",
+                        "fromProperty": "value",
+                        "toId": "7471364e-1cee-0fef-3e49-11b0cd189df2",
+                        "toProperty": "value"
+                    },
+                    {
+                        "fromId": "7471364e-1cee-0fef-3e49-11b0cd189df2",
+                        "fromProperty": "value",
+                        "toId": "6c1a5aa4-48b6-6d31-3880-d6803a52eb26",
+                        "toProperty": "value"
+                    },
+                    {
+                        "fromId": "6c1a5aa4-48b6-6d31-3880-d6803a52eb26",
+                        "fromProperty": "onChange",
+                        "toId": "7471364e-1cee-0fef-3e49-11b0cd189df2",
+                        "toProperty": "store"
+                    }
+                ],
+                "roots": [
+                    {
+                        "id": "052655a1-a3d8-79d1-354c-cec12c503b25",
+                        "type": "Group",
+                        "x": 0,
+                        "y": 0,
+                        "parameters": {
+                            "backgroundColor": "#FFFFFF",
+                            "paddingLeft": {
+                                "value": 100,
+                                "unit": "px"
+                            },
+                            "paddingTop": {
+                                "value": 100,
+                                "unit": "px"
+                            }
+                        },
+                        "ports": [],
+                        "dynamicports": [],
+                        "children": [
+                            {
+                                "id": "6c1a5aa4-48b6-6d31-3880-d6803a52eb26",
+                                "type": "Date Picker Button",
+                                "x": 20,
+                                "y": 46,
+                                "parameters": {},
+                                "ports": [],
+                                "dynamicports": [],
+                                "children": []
+                            }
+                        ]
+                    },
+                    {
+                        "id": "7471364e-1cee-0fef-3e49-11b0cd189df2",
+                        "type": "Variable",
+                        "x": 291.5465472900496,
+                        "y": 29.977141263016506,
+                        "parameters": {
+                            "name": "AnImportantDate"
+                        },
+                        "ports": [],
+                        "dynamicports": [],
+                        "children": []
+                    }
+                ]
+            },
+            "metadata": {
+                "canvasPos": {
+                    "x": 480,
+                    "y": -2
+                }
+            }
         }
     ],
     "settings": {},
-    "rootNodeId": "e8570140-710c-df7f-2314-faa1656a4f9c",
+    "rootNodeId": "052655a1-a3d8-79d1-354c-cec12c503b25",
     "version": "1",
     "metadata": {
         "dbCollections": []

@@ -77,6 +77,7 @@ function guid() {
 const DatePickerNode = Noodl.defineReactNode({
 	name: 'Date Picker Button',
 	category: 'Visuals',
+    docs:'https://docs.noodl.net/#/modules/datepicker-button/datepicker-button',
     initialize() {
         this.props.sizeMode = 'explicit';
         this.props.enabled = this.outputs.enabled = (this.inputs.enabled===undefined)?true:this.inputs.enabled;
