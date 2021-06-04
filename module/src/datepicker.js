@@ -14,6 +14,9 @@ class DatePicker extends Component {
         if(this.calendarRoot !== undefined) {
             this.datepicker = new Datepicker(this.calendarRoot, {
             })
+            if(this.props.value) {
+                this.datepicker.setDate(this.props.value);
+            }
             //this.datepicker.pickerElement.id = "ndl-picker-"+this.props._nodeId;
             this.calendarRoot.addEventListener('changeDate',() => {
                 this.onDateChanged(this.datepicker.getDate());
@@ -57,11 +60,15 @@ class DatePicker extends Component {
             onTouchCancel: (e) => {props.enabled && props.pressedState && props.pressedState(false); props.enabled && props.pointerUp && props.pointerUp()},                    
         }
 
+        if(this.datepicker && props.value) { // Change date on datepicker if visible
+            this.datepicker.setDate(props.value);
+        }
+
 	    return <div {...tagProps} className="ndl-datepicker-button" onClick={() => { if(this.mobileCalendarRoot !== undefined) this.mobileCalendarRoot.focus() }}>
             {this.props.showIcon?<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={props.iconColor} width="24px" height="24px"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M22 3h-3V1h-2v2H7V1H5v2H2v20h20V3zm-2 18H4V8h16v13z"/></svg>:null}
             {isMobile
-               ? <input type="date" class="ndl-datepicker-native-input" ref={(r) => {this.mobileCalendarRoot = r}} onChange={(e) => { this.onDateChanged(e.target.value) }} {...events}></input>
-               : <input className="ndl-datepicker-native-input" type="text" ref={(r) => {this.calendarRoot = r}} {...events}></input> 
+               ? <input type="date" class="ndl-datepicker-native-input" ref={(r) => {this.mobileCalendarRoot = r}} value={props.value} onChange={(e) => { this.onDateChanged(e.target.value) }} {...events}></input>
+               : <input className="ndl-datepicker-native-input" type="text" ref={(r) => {this.calendarRoot = r}} value={props.value} {...events}></input> 
             }
         </div>
     }
@@ -139,6 +146,7 @@ const DatePickerNode = Noodl.defineReactNode({
             const changed = newDate !== this.value;
 
             if(changed) {
+                this.props.value = newDate;
                 this.setOutputs({
                     value:newDate
                 })
